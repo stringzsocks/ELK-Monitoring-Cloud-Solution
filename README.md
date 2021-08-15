@@ -2,7 +2,8 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+![Azure Network Topology](Images/Azure Network Topology.png)
+![Ansible Playbooks used for project](Ansible Playbooks/)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Ansible Playbook file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -35,7 +36,6 @@ Filebeat has been implemented to monitor all systyem log, sudo commands run, SSH
 Metricbeat has also been implemented to monitor the health of our docker containers running on our web servers. Metricbeat has metrics on the amount of hardware resources being consumed by each web server, this allows us to ensure the containers are running at maximum effeciency and can alert us to any issues of over comsumption of resources that could lead to a drop in performance of our hosted sites.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function   | IP Address | Operating System |
 |----------|------------|------------|------------------|
@@ -80,7 +80,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![Docker PS Output](Images/Docker ps command output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -101,8 +101,6 @@ SSH into the control node and follow the steps below:
 - Copy the Ansible Playbook file to ansible control node, in this case the Jump-Box VM.
 - Update the ansible hosts file to include your webservers and ELK VM IP addresses, these become your ansible host names.
 - Run the playbook, and navigate to ELK-VM Public IP address with port 5601 to check that the installation worked as expected.
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 ### Creating a playbook on the Ansible node
 - cd /etc/ansible
