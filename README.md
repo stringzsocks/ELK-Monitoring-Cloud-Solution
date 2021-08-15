@@ -2,12 +2,12 @@
 
 The files in this repository were used to configure the network depicted below.
 
-[Azure Network Topology](Images/Azure Network Topology.png)
-[Ansible Playbooks used for project](Ansible Playbooks/)
+![Azure Network Topology](Images/Azure%20Network%20Topology.png)
+[Ansible Playbooks used for project](Ansible%20Playbooks/)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Ansible Playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - Hyper Link the Ansibe elk install file
+  [Ansible Playbook for Elk Install](Ansible%20Playbooks/elk-install-playbook.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -31,9 +31,9 @@ Load balancing ensures that the application will be highly available, in additio
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the running websites and system logs. 
 
-Filebeat has been implemented to monitor all systyem log, sudo commands run, SSH login attempts and the creation of new users and groups and on which server the commands originated from. These monitoring vectors are useful in the event a threat agent is able to access the system, run sudo commands and create a back door user and/or group.    
+- Filebeat has been implemented to monitor all systyem log, sudo commands run, SSH login attempts and the creation of new users and groups and on which server the commands originated from. These monitoring vectors are useful in the event a threat agent is able to access the system, run sudo commands and create a back door user and/or group.    
 
-Metricbeat has also been implemented to monitor the health of our docker containers running on our web servers. Metricbeat has metrics on the amount of hardware resources being consumed by each web server, this allows us to ensure the containers are running at maximum effeciency and can alert us to any issues of over comsumption of resources that could lead to a drop in performance of our hosted sites.
+- Metricbeat has also been implemented to monitor the health of our docker containers running on our web servers. Metricbeat has metrics on the amount of hardware resources being consumed by each web server, this allows us to ensure the containers are running at maximum effeciency and can alert us to any issues of over comsumption of resources that could lead to a drop in performance of our hosted sites.
 
 The configuration details of each machine may be found below.
 
@@ -80,7 +80,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-[Docker PS Output](Images/Docker ps command output.png)
+![Docker PS Output](Images/Docker%20ps%20command%20output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -108,11 +108,11 @@ SSH into the control node and follow the steps below:
 - Fill out the playbook
 - nano hosts
 - add in your new VMs as hosts: 
-[webservers]
-10.0.0.7 ansible_python_interpreter=/usr/bin/python3
-10.0.0.9 ansible_python_interpreter=/usr/bin/python3
-[elk]
-10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+  - [webservers]
+  - 10.0.0.7 ansible_python_interpreter=/usr/bin/python3
+  - 10.0.0.9 ansible_python_interpreter=/usr/bin/python3
+  - [elk]
+  - 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 - run the Ansible play book: ansible-playbook elk-install-playbook.yml
 - Once completed confirm ELK is running on the public IP of the ELK-VM with port 5601: 
 - 52.247.222.133:5601
