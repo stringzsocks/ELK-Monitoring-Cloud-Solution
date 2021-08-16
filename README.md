@@ -103,17 +103,28 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to ELK-VM Public IP address with port 5601 to check that the installation worked as expected.
 
 ### Creating a playbook on the Ansible node
-- cd /etc/ansible
-- nano Elk-install-playbook.yml
-- Fill out the playbook
-- nano hosts
-- add in your new VMs as hosts: 
-  - [webservers]
-  - 10.0.0.7 ansible_python_interpreter=/usr/bin/python3
-  - 10.0.0.9 ansible_python_interpreter=/usr/bin/python3
-  - [elk]
-  - 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
-- run the Ansible play book: ansible-playbook elk-install-playbook.yml
-- Once completed confirm ELK is running on the public IP of the ELK-VM with port 5601: 
-- 52.247.222.133:5601
+```console
+root@177605072ed6:~# cd /etc/ansible
+
+root@177605072ed6:~# nano Elk-install-playbook.yml
+
+Copy over playbook you created locally
+
+root@177605072ed6:~# nano hosts
+
+Add in your new VMs as hosts to the 'hosts' file:
+
+[webservers]
+10.0.0.7 ansible_python_interpreter=/usr/bin/python3
+10.0.0.9 ansible_python_interpreter=/usr/bin/python3
+[elk]
+10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+
+Run the Ansible play book:
+
+root@177605072ed6:~# ansible-playbook elk-install-playbook.yml
+
+Once completed confirm ELK is running on the public IP of the ELK-VM with port 5601: 
+52.247.222.133:5601
+```
 
